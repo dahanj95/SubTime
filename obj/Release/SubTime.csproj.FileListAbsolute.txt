@@ -1,0 +1,7 @@
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Release\SubTime.exe.config
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Release\SubTime.exe
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Release\SubTime.pdb
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Release\SubTime.csprojAssemblyReference.cache
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Release\SubTime.csproj.CoreCompileInputs.cache
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Release\SubTime.exe
+C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Release\SubTime.pdb
