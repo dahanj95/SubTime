@@ -1,7 +1,0 @@
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Debug\SubTime.exe.config
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Debug\SubTime.exe
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\bin\Debug\SubTime.pdb
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Debug\SubTime.csprojAssemblyReference.cache
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Debug\SubTime.csproj.CoreCompileInputs.cache
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Debug\SubTime.exe
-C:\Users\jdaha\Documents\Visual Studio 2019\Projects\SubTime\SubTime\obj\Debug\SubTime.pdb
