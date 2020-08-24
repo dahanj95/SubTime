@@ -64,14 +64,11 @@ namespace SubTime
             var matches = Regex.Matches(text, "(\\d{2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{2}:\\d{2}:\\d{2},\\d{3})");
             for (int i = 0; i < matches.Count; i++)
             {
-                if (Regex.IsMatch(matches[i].Value, "(\\d{2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{2}:\\d{2}:\\d{2},\\d{3})"))
-                {
-                    Time time = times.ElementAt(i);
-                    text = text.Replace(
-                        matches[i].Value, 
-                        $"{time.TimeBegin.ToString("HH:mm:ss,fff")} --> {time.TimeEnd.ToString("HH:mm:ss,fff")}"
-                    );
-                }
+                Time time = times.ElementAt(i);
+                text = text.Replace(
+                    matches[i].Value,
+                    $"{time.TimeBegin:HH:mm:ss,fff} --> {time.TimeEnd:HH:mm:ss,fff}"
+                );
             }
 
             File.WriteAllText($"new_{pathToSubtitle}", text, Encoding.GetEncoding("windows-1255"));
