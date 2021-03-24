@@ -2,7 +2,7 @@
 
 namespace SubTime.Models
 {
-    public class Time
+    public class Duration
     {
         public DateTime TimeBegin { get; set; }
         public DateTime TimeEnd { get; set; }

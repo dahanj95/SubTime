@@ -1,5 +1,4 @@
-﻿using System;
-using SubTime.Contracts;
+﻿using SubTime.Contracts;
 using SubTime.Factories;
 
 namespace SubTime
@@ -8,15 +7,15 @@ namespace SubTime
     {
         static void Main(string[] args)
         {
-            string fileName = args[0];
-            int seconds = Convert.ToInt32(args[1]);
+            //string fileName = args[0];
+            //int seconds = Convert.ToInt32(args[1]);
 
-            //string fileName = "Dorm.Daze.2003.1080p.BluRay.srt";
-            //int seconds = 18;
+            string fileName = "Alex and Emma (2003).sub";
+            int seconds = 5;
 
-            var factory = new TranslatorFactory();
-            ITranslator translator = factory.GetTranslator(fileName);
-            translator?.Translate(fileName, seconds);
+            var subtitleFactory = new SubtitleFactory();
+            ISubtitle subtitle = subtitleFactory.GetSubtitle(fileName);
+            subtitle?.SyncTime(fileName, seconds);
         }
     }
 }
