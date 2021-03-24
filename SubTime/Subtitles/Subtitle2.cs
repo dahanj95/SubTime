@@ -1,4 +1,5 @@
-﻿using SubTime.Models;
+﻿using SubTime.Contracts;
+using SubTime.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -7,11 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace SubTime.Contracts
+namespace SubTime.Subtitles
 {
-    public abstract class CommonUtilities
+    public class Subtitle2 : CommonUtilities, ISubtitle
     {
-        protected virtual List<Duration> ReadTimeListByPattern(string filePath, string pattern, string parseExactPattern)
+        public string Pattern => "{(\\d+)}{(\\d+)}";
+
+        public string ParseExactPattern => "FFFFFF";
+
+        public bool IsCompatible(string content)
+        {
+            return Regex.Match(content, Pattern).Success;
+        }
+
+        public void SyncTime(string fileName, int timeBySeconds)
+        {
+            var timeList = ReadTimeListByPattern(fileName, Pattern, ParseExactPattern);
+            AdjustDurationListByTime(ref timeList, timeBySeconds);
+            WriteTimeListToFileByPattern(fileName, timeList, Pattern, ParseExactPattern);
+        }
+
+        protected override List<Duration> ReadTimeListByPattern(string filePath, string pattern, string parseExactPattern)
         {
             string content = File.ReadAllText(filePath);
             var matches = Regex.Matches(content, pattern);
@@ -25,8 +42,11 @@ namespace SubTime.Contracts
                 string m1 = match.Groups[1].Value;
                 string m2 = match.Groups[2].Value;
 
-                var dt0 = TimeSpan.ParseExact(m1, parseExactPattern, CultureInfo.InvariantCulture);
-                var dt1 = TimeSpan.ParseExact(m2, parseExactPattern, CultureInfo.InvariantCulture);
+                double d1 = double.Parse(m1);
+                double d2 = double.Parse(m2);
+
+                var dt0 = TimeSpan.FromMilliseconds(d1);
+                var dt1 = TimeSpan.FromMilliseconds(d2);
 
                 Duration time = new Duration
                 {
@@ -40,18 +60,7 @@ namespace SubTime.Contracts
             return result;
         }
 
-        protected virtual void AdjustDurationListByTime(ref List<Duration> durationList, int seconds)
-        {
-            foreach (Duration duration in durationList)
-            {
-                var time = TimeSpan.FromSeconds(seconds);
-
-                duration.TimeBegin = duration.TimeBegin.Add(time);
-                duration.TimeEnd = duration.TimeEnd.Add(time);
-            }
-        }
-
-        protected virtual void WriteTimeListToFileByPattern(string filePath, List<Duration> times, string pattern, string format)
+        protected override void WriteTimeListToFileByPattern(string filePath, List<Duration> times, string pattern, string format)
         {
             string text = File.ReadAllText(filePath, Encoding.GetEncoding("windows-1255"));
             var matches = Regex.Matches(text, pattern);
@@ -61,7 +70,7 @@ namespace SubTime.Contracts
                 Duration time = times.ElementAt(i);
                 text = text.Replace(
                     matches[i].Value,
-                    $"{time.TimeBegin.ToString(format)} --> {time.TimeEnd.ToString(format)}"
+                    $"{{{time.TimeBegin.TotalMilliseconds}}}{{{time.TimeEnd.TotalMilliseconds}}}"
                 );
             }
 

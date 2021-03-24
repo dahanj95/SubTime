@@ -1,12 +1,12 @@
 ﻿using SubTime.Contracts;
 using System.Text.RegularExpressions;
 
-namespace SubTime.Translators
+namespace SubTime.Subtitles
 {
-    public class Subtitle0 : CommonUtilities, ISubtitle
+    public class Subtitle1 : CommonUtilities, ISubtitle
     {
-        public string Pattern { get; } = "(\\d{2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{2}:\\d{2}:\\d{2},\\d{3})";
-        public string ParseExactPattern { get; } = "HH:mm:ss,fff";
+        public string Pattern { get; } = "(\\d{2}:\\d{2}:\\d{2}.\\d{3}) --> (\\d{2}:\\d{2}:\\d{2}.\\d{3})";
+        public string ParseExactPattern { get; } = "hh\\:mm\\:ss.fff";
 
         public bool IsCompatible(string content)
         {

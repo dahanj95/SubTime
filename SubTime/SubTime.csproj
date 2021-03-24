@@ -49,8 +49,9 @@
     <Compile Include="Models\Duration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Translators\Subtitle0.cs" />
-    <Compile Include="Translators\Subtitle1.cs" />
+    <Compile Include="Subtitles\Subtitle0.cs" />
+    <Compile Include="Subtitles\Subtitle1.cs" />
+    <Compile Include="Subtitles\Subtitle2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

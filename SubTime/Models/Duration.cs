@@ -4,7 +4,7 @@ namespace SubTime.Models
 {
     public class Duration
     {
-        public DateTime TimeBegin { get; set; }
-        public DateTime TimeEnd { get; set; }
+        public TimeSpan TimeBegin { get; set; }
+        public TimeSpan TimeEnd { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using SubTime.Contracts;
-using SubTime.Translators;
+using SubTime.Subtitles;
 using System.Collections.Generic;
 using System.IO;
 
@@ -15,7 +15,7 @@ namespace SubTime.Factories
             {
                 new Subtitle0(),
                 new Subtitle1(),
-                //new Subtitle2()
+                new Subtitle2()
             };
         }
 
